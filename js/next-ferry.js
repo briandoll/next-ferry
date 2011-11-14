@@ -93,20 +93,20 @@ function time_diff_in_words(earlier, later){
 
 function print_ride(ferry_ride, is_next){
   css_class = (is_next) ? "next ride" : "ride";
-  leaves_in = (is_next) ? "<li class='leaves-in'>Leaves in<br/><span class='time'>" + time_diff_in_words(new Date(), ferry_ride.departure_date) + "</span> min!</li>" : "";
+  leaves_in = (is_next) ? "<li class='leaves-in'>Leaves in<br/><span class='time'>" + time_diff_in_words(new Date(), ferry_ride.departure_date) + "</span></li>" : "";
   return "<div class='" + css_class + "'>" + leaves_in +
-    "<li class='locations'>Departs<br/><span class='loc'>" + ferry_ride.starts_from + "</span></li>" +
-    "<li class='time'>" + ferry_ride.departure_str + "</li>" +
-    "<li class='locations'>Arrives<br/><span class='loc'>" + ferry_ride.goes_to + "</span></li>" +
-    "<li class='time'>" + ferry_ride.arrival_str + "</li></div>"
+    "<li class='locations'>Departs<br/><span class='loc'>" + ferry_ride.starts_from + "</span><br/><span class='time'>" + ferry_ride.departure_str + "</span></li>" +
+    "<li class='locations'>Arrives<br/><span class='loc'>" + ferry_ride.goes_to + "</span><br/><span class='time'>" + ferry_ride.arrival_str + "</span></li>"
 };
 
 var curr_time = new Date();
 var has_next_ferry = false;
 $.each(schedules(), function(index, schedule) {
+  var num_next_ferries_this_schedule = 0;
   $.each(schedule, function(index, ferry_ride) {
     $("#full-schedule").append(print_ride(ferry_ride));
-    if (ferry_ride.departure_date > curr_time) {
+    if (ferry_ride.departure_date > curr_time && num_next_ferries_this_schedule < 2) {
+      num_next_ferries_this_schedule++;
       $("#next-ferry").append(print_ride(ferry_ride, "bold"));
       has_next_ferry = true;
     };

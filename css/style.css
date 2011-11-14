@@ -314,15 +314,15 @@ textarea[contenteditable] {-webkit-appearance: none;}
   h2, h3 { page-break-after: avoid; }
 }
 
-body {background-color: #CC3300; color: #CCFFFF; padding: 10px;}
+body {background-color: #CC3300; color: #CCFFFF; padding: 3px; font-family: ff-enzo-web,sans-serif; font-style: normal; font-weight: 600; !important;}
 a {color: #CCFFFF;}
 a:visited {color: #CCFFFF;}
 a:hover {color: #CCFFFF;}
 .next {color:#333;}
-.header {font-size:2.5em; color:#FFF;}
+.header {font-size:1.5em; color:#FFF;}
 .ride {border-bottom:thick dotted #ff0000;}
-.ride li {display: inline-block; padding:10px; vertical-align:middle; text-align: center;}
+.ride li {display: inline-block; padding:3px; vertical-align:middle; text-align: center;}
 .loc {font-size:1.5em;}
-.time { font-size: 1.5em; width:75px;}
-.leaves-in {width: 100px;}
-.locations {width: 50px;}
+.locations {width:90px;}
+.time { font-size:1.2em; font-style:bold;}
+.leaves-in {width: 80px;}
