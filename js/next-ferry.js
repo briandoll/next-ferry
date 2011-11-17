@@ -43,6 +43,32 @@ sf_to_lk.push(new ferry_ride(20,10,20,40,sf,lk));
 sf_to_lk.push(new ferry_ride(20,50,21,20,sf,lk));
 sf_to_lk.push(new ferry_ride(21,35,22,05,sf,lk));
 
+function geocode_url(lat, lon){
+ return "http://where.yahooapis.com/geocode?location=" + lat + "+" + lon + "&gflags=R&flags=J&appid=yourappid";
+}
+
+function filter_next_ferry_list_by_geography(){
+  if (navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        var url = geocode_url(position.coords.latitude,position.coords.longitude);
+        $.getJSON(url,function(data) {
+          city = data.ResultSet.Results[0].city;
+          if (city.length > 0){
+            if ("San Francisco" == city){
+              remove_rides_by_class("LRK");
+            } else {
+              remove_rides_by_class("SF");
+            }
+          };
+          
+        });
+      },
+      function (error){}
+    );
+  };
+};
+
 // TODO return onto those schedules that the user has selected
 function schedules(){
   return [lk_to_sf, sf_to_lk]
@@ -68,7 +94,7 @@ function ferry_ride(departure_hour, departure_minute, arrival_hour, arrival_minu
   this.arrival_str = time_to_str(this.arrival_date);
   this.starts_from = starts_from;
   this.goes_to = goes_to;
-}
+};
 
 // cribbed from http://blogs.digitss.com/javascript/calculate-datetime-difference-simple-javascript-code-snippet/
 function get_time_difference(earlierDate, laterDate){
@@ -82,22 +108,26 @@ function get_time_difference(earlierDate, laterDate){
   nTotalDiff -= oDiff.minutes*1000*60;
   oDiff.seconds = Math.floor(nTotalDiff/1000);
   return oDiff;
-}
+};
 
 function time_diff_in_words(earlier, later){
   diff = get_time_difference(earlier, later);
   h = (diff.hours > 0) ? (diff.hours + "h ") : "";
   m = diff.minutes + "m";
   return (h + m);
-}
+};
 
 function print_ride(ferry_ride, is_next){
   css_class = (is_next) ? "next ride" : "ride";
   leaves_in = (is_next) ? "<li class='leaves-in'>Leaves in<br/><span class='time'>" + time_diff_in_words(new Date(), ferry_ride.departure_date) + "</span></li>" : "";
-  return "<div class='" + css_class + "'>" + leaves_in +
+  return "<div class='" + css_class + " " + ferry_ride.starts_from + "'>" + leaves_in +
     "<li class='locations'>Departs<br/><span class='loc'>" + ferry_ride.starts_from + "</span><br/><span class='time'>" + ferry_ride.departure_str + "</span></li>" +
     "<li class='locations'>Arrives<br/><span class='loc'>" + ferry_ride.goes_to + "</span><br/><span class='time'>" + ferry_ride.arrival_str + "</span></li>"
 };
+
+function remove_rides_by_class(css_class){
+  $("." + css_class).remove();
+}
 
 var curr_time = new Date();
 var has_next_ferry = false;
@@ -119,3 +149,5 @@ if (!has_next_ferry){
     "<a href='tel:+415.333.3333'>Dial SF Yellow Cab</a><br/>"
     );
 }
+
+filter_next_ferry_list_by_geography();

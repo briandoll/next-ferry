@@ -318,7 +318,7 @@ body {background-color: #CC3300; color: #CCFFFF; padding: 3px; font-family: ff-e
 a {color: #CCFFFF;}
 a:visited {color: #CCFFFF;}
 a:hover {color: #CCFFFF;}
-.next {color:#333;}
+.next {color:yellow;}
 .header {font-size:1.5em; color:#FFF;}
 .ride {border-bottom:thick dotted #ff0000;}
 .ride li {display: inline-block; padding:3px; vertical-align:middle; text-align: center;}
