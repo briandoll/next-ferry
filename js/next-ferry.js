@@ -6,6 +6,7 @@ lk_to_sf.push(new ferry_ride(5,50,6,20,lk,sf));
 lk_to_sf.push(new ferry_ride(6,35,7,05,lk,sf));
 lk_to_sf.push(new ferry_ride(7,10,7,40,lk,sf));
 lk_to_sf.push(new ferry_ride(7,50,8,20,lk,sf));
+lk_to_sf.push(new ferry_ride(8,20,8,50,lk,sf));
 lk_to_sf.push(new ferry_ride(9,15,9,50,lk,sf));
 lk_to_sf.push(new ferry_ride(10,10,10,45,lk,sf));
 lk_to_sf.push(new ferry_ride(11,10,11,45,lk,sf));
