@@ -19,9 +19,7 @@ lk_to_sf.push(new ferry_ride(17,10,17,45,lk,sf));
 lk_to_sf.push(new ferry_ride(17,35,18,10,lk,sf));
 lk_to_sf.push(new ferry_ride(18,35,19,10,lk,sf));
 lk_to_sf.push(new ferry_ride(19,20,19,55,lk,sf));
-lk_to_sf.push(new ferry_ride(20,10,20,45,lk,sf));
 lk_to_sf.push(new ferry_ride(20,50,21,25,lk,sf));
-lk_to_sf.push(new ferry_ride(23,50,23,55,lk,sf));
 
 var sf_to_lk = new Array();
 sf_to_lk.push(new ferry_ride(6,25,6,55,sf,lk));
@@ -36,12 +34,12 @@ sf_to_lk.push(new ferry_ride(13,25,14,00,sf,lk));
 sf_to_lk.push(new ferry_ride(15,00,15,30,sf,lk));
 sf_to_lk.push(new ferry_ride(15,35,16,05,sf,lk));
 sf_to_lk.push(new ferry_ride(16,25,16,55,sf,lk));
-sf_to_lk.push(new ferry_ride(17,30,18,05,sf,lk));
+sf_to_lk.push(new ferry_ride(17,00,17,30,sf,lk));
+sf_to_lk.push(new ferry_ride(17,20,18,05,sf,lk));
 sf_to_lk.push(new ferry_ride(17,55,18,25,sf,lk));
 sf_to_lk.push(new ferry_ride(18,20,18,50,sf,lk));
 sf_to_lk.push(new ferry_ride(19,20,19,50,sf,lk));
 sf_to_lk.push(new ferry_ride(20,10,20,40,sf,lk));
-sf_to_lk.push(new ferry_ride(20,50,21,20,sf,lk));
 sf_to_lk.push(new ferry_ride(21,35,22,05,sf,lk));
 
 function geocode_url(lat, lon){
