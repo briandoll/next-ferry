@@ -2,9 +2,9 @@ var sf = "SF";
 var lk = "LRK";
 
 var lk_to_sf = new Array();
-lk_to_sf.push(new ferry_ride(5,50,6,20,lk,sf));
+lk_to_sf.push(new ferry_ride(5,45,6,15,lk,sf));
 lk_to_sf.push(new ferry_ride(6,35,7,05,lk,sf));
-lk_to_sf.push(new ferry_ride(7,10,7,40,lk,sf));
+lk_to_sf.push(new ferry_ride(7,00,7,30,lk,sf));
 lk_to_sf.push(new ferry_ride(7,50,8,20,lk,sf));
 lk_to_sf.push(new ferry_ride(8,20,8,50,lk,sf));
 lk_to_sf.push(new ferry_ride(9,15,9,50,lk,sf));
@@ -15,16 +15,16 @@ lk_to_sf.push(new ferry_ride(14,15,14,50,lk,sf));
 lk_to_sf.push(new ferry_ride(14,50,15,25,lk,sf));
 lk_to_sf.push(new ferry_ride(15,40,16,15,lk,sf));
 lk_to_sf.push(new ferry_ride(16,15,16,45,lk,sf));
-lk_to_sf.push(new ferry_ride(17,10,17,45,lk,sf));
-lk_to_sf.push(new ferry_ride(17,35,18,10,lk,sf));
+lk_to_sf.push(new ferry_ride(17,05,17,40,lk,sf));
+lk_to_sf.push(new ferry_ride(17,40,18,15,lk,sf));
 lk_to_sf.push(new ferry_ride(18,35,19,10,lk,sf));
-lk_to_sf.push(new ferry_ride(19,20,19,55,lk,sf));
+lk_to_sf.push(new ferry_ride(19,25,20,00,lk,sf));
 lk_to_sf.push(new ferry_ride(20,50,21,25,lk,sf));
 
 var sf_to_lk = new Array();
-sf_to_lk.push(new ferry_ride(6,25,6,55,sf,lk));
+sf_to_lk.push(new ferry_ride(6,20,6,50,sf,lk));
 sf_to_lk.push(new ferry_ride(7,10,7,40,sf,lk));
-sf_to_lk.push(new ferry_ride(7,45,8,15,sf,lk));
+sf_to_lk.push(new ferry_ride(7,35,8,05,sf,lk));
 sf_to_lk.push(new ferry_ride(8,30,9,05,sf,lk));
 sf_to_lk.push(new ferry_ride(9,10,9,45,sf,lk));
 sf_to_lk.push(new ferry_ride(10,10,10,45,sf,lk));
@@ -37,7 +37,7 @@ sf_to_lk.push(new ferry_ride(16,25,16,55,sf,lk));
 sf_to_lk.push(new ferry_ride(17,00,17,30,sf,lk));
 sf_to_lk.push(new ferry_ride(17,20,18,05,sf,lk));
 sf_to_lk.push(new ferry_ride(17,55,18,25,sf,lk));
-sf_to_lk.push(new ferry_ride(18,20,18,50,sf,lk));
+sf_to_lk.push(new ferry_ride(18,25,18,55,sf,lk));
 sf_to_lk.push(new ferry_ride(19,20,19,50,sf,lk));
 sf_to_lk.push(new ferry_ride(20,10,20,40,sf,lk));
 sf_to_lk.push(new ferry_ride(21,35,22,05,sf,lk));
@@ -60,7 +60,7 @@ function filter_next_ferry_list_by_geography(){
               remove_rides_by_class("SF");
             }
           };
-          
+
         });
       },
       function (error){}
